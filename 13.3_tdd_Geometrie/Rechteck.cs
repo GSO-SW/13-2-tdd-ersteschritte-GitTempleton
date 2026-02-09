@@ -15,13 +15,53 @@ namespace _13._3_tdd_Geometrie
 
         public int Breite { 
             get { return breite; } 
-            set { breite = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Breite ist kleiner 0");
+                }
+                else
+                {
+                    breite = value;
+                }
+            }
             
         }
         public int Hoehe { 
             get { return hoehe; } 
-            set { hoehe = value; }
+            set 
+            { 
+            if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Hoehe ist kleiner 0");
+                }
+                else
+                {
+                    hoehe = value;
+                }
+            }
         }
+        public Rechteck(int breite, int hoehe)
+        {
+            this.breite = breite;
+            this.hoehe = hoehe;
+        }
+        public Rechteck()
+        {
+
+        }
+
+        public int Umfang()
+        {
+            return 2* breite + 2* hoehe;
+        }
+        public int Flaeche()
+        {
+            return breite * hoehe;
+        }
+
+        
 
         public void Skalieren(double faktor)
         {
